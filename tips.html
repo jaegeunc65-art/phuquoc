@@ -8,6 +8,17 @@
 </head>
 <body>
   <div class="wrap">
+<div class="topbar">
+  <div class="menuWrap">
+    <button class="menuBtn" id="menuBtn" type="button">☰ 목록</button>
+    <div class="menuPanel" id="menuPanel">
+      <a class="menuItem" href="./tips.html">일정</a>
+      <a class="menuItem" href="./spots.html">관광</a>
+      <a class="menuItem" href="./food.html">먹거리</a>
+    </div>
+  </div>
+  <div class="badge"><a href="./index.html">← 메인</a></div>
+</div>
     <div class="header">
       <div class="title">팁 · 준비물</div>
       <a class="badge" href="./index.html">← 메인</a>
@@ -29,5 +40,23 @@
       </div>
     </div>
   </div>
+<script>
+  (function(){
+    const btn = document.getElementById("menuBtn");
+    const panel = document.getElementById("menuPanel");
+    if(!btn || !panel) return;
+
+    btn.addEventListener("click", () => {
+      panel.classList.toggle("open");
+    });
+
+    // 바깥 클릭하면 닫기
+    document.addEventListener("click", (e) => {
+      if(!panel.classList.contains("open")) return;
+      if(panel.contains(e.target) || btn.contains(e.target)) return;
+      panel.classList.remove("open");
+    });
+  })();
+</script>
 </body>
 </html>

@@ -3,50 +3,75 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>푸꾸옥 여행 노트</title>
+  <title>엄친 가족들 푸꾸옥 여행 노트</title>
+
   <link rel="stylesheet" href="./styles.css" />
   <link rel="manifest" href="./manifest.json" />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#f3f7ff" />
 </head>
-<body>
-  <div class="wrap">
-    <div class="header">
-      <div class="title">푸꾸옥 여행 노트</div>
-      <div class="badge">오프라인 OK · PWA</div>
-    </div>
 
-    <div class="hero">
-      <img src="./assets/cover.jpg" alt="cover" />
-      <div class="heroText">
-        <h1>메뉴</h1>
-        <p>형님이 필요한 내용만 여기서 링크로 들어가게 구성했습니다. (글/사진 몇 개면 충분)</p>
-        <div class="toolbar">
-          <a class="btn" href="./spots.html">관광 · 일정</a>
-          <a class="btn" href="./food.html">맛집</a>
-          <a class="btn" href="./tips.html">팁 · 준비물</a>
-          <a class="btn" href="./emergency.html">비상 · 연락처</a>
+<body class="home">
+  <!-- ✅ 상단 고정 메뉴바 -->
+  <div class="topbar topbar--sticky">
+    <div class="wrap topbarInner">
+      <div class="menuWrap">
+        <button class="menuBtn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">
+          ☰ 목록
+        </button>
+
+        <div class="menuPanel" id="menuPanel" role="menu" aria-label="페이지 메뉴">
+          <a class="menuItem" href="./tips.html" role="menuitem">일정</a>
+          <a class="menuItem" href="./spots.html" role="menuitem">관광</a>
+          <a class="menuItem" href="./food.html" role="menuitem">먹거리</a>
         </div>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>오늘 체크</h2>
-      <div class="list">
-        <div class="item">
-          <div class="h"><b>✅ 출발 전</b><span>예시</span></div>
-          <p>여권/비자/보험/유심(or eSIM)/환전/공항 픽업 확인</p>
-        </div>
-        <div class="item">
-          <div class="h"><b>✅ 현지</b><span>예시</span></div>
-          <p>그랩/택시, 숙소 주소 베트남어 표기, 팁/현금 준비</p>
-        </div>
-      </div>
-      <div class="footer">※ 이 페이지는 처음 한 번 온라인에서 열어 캐시가 잡히면, 이후 비행기 모드에서도 열립니다.</div>
+      <div class="badge">엄친 가족들</div>
     </div>
   </div>
 
+  <!-- ✅ 풀스크린 메인 사진 -->
+  <main class="homeHero">
+    <img class="homeHeroImg" src="./assets/cover.jpg" alt="푸꾸옥 메인 사진" />
+
+    <!-- (선택) 사진 위에 제목을 살짝 얹고 싶으면 아래 주석 해제
+    <div class="homeHeroOverlay">
+      <div class="homeHeroTitle">푸꾸옥 여행 노트</div>
+      <div class="homeHeroSub">오프라인으로도 열리게 만들어둠</div>
+    </div>
+    -->
+  </main>
+
   <script>
-    // 서비스워커 등록(오프라인 캐시)
+    (function(){
+      const btn = document.getElementById("menuBtn");
+      const panel = document.getElementById("menuPanel");
+      if(!btn || !panel) return;
+
+      function closeMenu(){
+        panel.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+      function toggleMenu(){
+        const isOpen = panel.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      }
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      document.addEventListener("click", (e) => {
+        if(panel.contains(e.target) || btn.contains(e.target)) return;
+        closeMenu();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") closeMenu();
+      });
+    })();
+
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./sw.js");
     }

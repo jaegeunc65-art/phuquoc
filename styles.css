@@ -1,45 +1,70 @@
 :root{
-  --bg:#0b1220;
-  --card:#111a2e;
-  --text:#e8eefc;
-  --muted:#a9b6d6;
-  --line:rgba(255,255,255,.12);
-  --accent:#7cc4ff;
+  /* 파스텔 라이트 테마 */
+  --bg:#f3f7ff;                 /* 전체 배경 */
+  --card:#ffffff;               /* 카드/패널 배경 */
+  --text:#0f172a;               /* 기본 글자색 */
+  --muted:#52607a;              /* 보조 글자색 */
+  --line:rgba(15,23,42,.14);    /* 테두리 */
+  --accent:#3b82f6;             /* 포인트 컬러 */
 }
 
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
-  background: radial-gradient(1000px 600px at 20% 0%, rgba(124,196,255,.18), transparent 60%),
-              radial-gradient(1000px 600px at 80% 10%, rgba(140,255,214,.10), transparent 55%),
-              var(--bg);
+
+  /* 파스텔 배경 그라데이션 */
+  background:
+    radial-gradient(900px 520px at 15% 0%, rgba(59,130,246,.12), transparent 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(34,197,94,.10), transparent 55%),
+    radial-gradient(900px 520px at 50% 110%, rgba(168,85,247,.10), transparent 55%),
+    var(--bg);
+
   color:var(--text);
 }
 
 a{color:inherit;text-decoration:none}
+
 .wrap{max-width:900px;margin:0 auto;padding:18px}
 .header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 16px}
 .title{font-size:20px;font-weight:800;letter-spacing:.2px}
-.badge{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)}
+
+.badge{
+  font-size:12px;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.75);
+}
+
+/* Hero */
 .hero{
   border:1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: var(--card);
   border-radius:18px;
   overflow:hidden;
   margin-bottom:14px;
+  box-shadow: 0 10px 30px rgba(2,6,23,.08);
 }
-.hero img{width:100%;height:200px;object-fit:cover;display:block;filter:saturate(1.1) contrast(1.05)}
+.hero img{
+  width:100%;
+  height:360px;            /* 사진 더 키우려면 420 같은 값으로 */
+  object-fit:cover;
+  display:block;
+  filter:saturate(1.05) contrast(1.02);
+}
 .hero .heroText{padding:14px 14px 16px}
 .hero .heroText h1{margin:0 0 6px;font-size:22px}
 .hero .heroText p{margin:0;color:var(--muted);line-height:1.5}
 
+/* Grid cards */
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media (min-width:780px){ .grid{grid-template-columns:repeat(4,1fr)} }
 
 .card{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.85);
   border-radius:16px;
   padding:14px;
   min-height:88px;
@@ -47,18 +72,26 @@ a{color:inherit;text-decoration:none}
   flex-direction:column;
   gap:8px;
   transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  box-shadow: 0 10px 30px rgba(2,6,23,.06);
 }
-.card:hover{transform:translateY(-2px);background:rgba(255,255,255,.06);border-color:rgba(124,196,255,.30)}
+.card:hover{
+  transform:translateY(-2px);
+  background:#ffffff;
+  border-color:rgba(59,130,246,.35);
+}
 .card .k{font-weight:800}
 .card .d{font-size:12px;color:var(--muted);line-height:1.4}
 
+/* Sections & list */
 .section{margin-top:16px}
 .section h2{margin:0 0 10px;font-size:16px}
+
 .list{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,.85);
   border-radius:16px;
   overflow:hidden;
+  box-shadow: 0 10px 30px rgba(2,6,23,.05);
 }
 .item{padding:12px 14px;border-top:1px solid var(--line)}
 .item:first-child{border-top:0}
@@ -67,16 +100,144 @@ a{color:inherit;text-decoration:none}
 .item .h span{font-size:12px;color:var(--muted)}
 .item p{margin:8px 0 0;color:var(--muted);line-height:1.55;white-space:pre-wrap}
 
+/* Buttons */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
 .btn{
-  border:1px solid rgba(124,196,255,.28);
-  background:rgba(124,196,255,.10);
+  border:1px solid rgba(59,130,246,.28);
+  background:rgba(59,130,246,.10);
   color:var(--text);
   padding:10px 12px;
   border-radius:12px;
   font-weight:700;
   font-size:13px;
 }
+.btn:hover{
+  border-color: rgba(59,130,246,.35);
+  background: rgba(59,130,246,.14);
+}
 .btn:active{transform:translateY(1px)}
+
 .footer{margin:18px 0 6px;color:var(--muted);font-size:12px}
 .small{font-size:12px;color:var(--muted)}
+
+/* ===== Top dropdown menu ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:8px 0 14px;
+}
+
+.menuWrap{ position:relative; }
+
+.menuBtn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.75);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow: 0 10px 24px rgba(2,6,23,.06);
+}
+.menuBtn:hover{
+  background:#ffffff;
+  border-color: rgba(59,130,246,.25);
+}
+.menuBtn:active{transform:translateY(1px)}
+
+.menuPanel{
+  position:absolute;
+  top:44px;
+  left:0;
+  width:220px;
+  border:1px solid var(--line);
+  background: var(--card);
+  border-radius:14px;
+  padding:10px;
+  display:none;
+  z-index:999;
+  box-shadow: 0 12px 30px rgba(2,6,23,.12);
+}
+.menuPanel.open{display:block;}
+
+/* ✅ 여기(메뉴 버튼 모양) 빠졌던 속성들 다 포함 */
+.menuItem{
+  display:block;
+  width:100%;
+  text-align:left;
+
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.9);
+  color:var(--text);
+
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+.menuItem:last-child{margin-bottom:0;}
+.menuItem:hover{
+  border-color:rgba(59,130,246,.35);
+  background:#ffffff;
+}
+
+/* ===== Home (index) : sticky topbar + fullscreen hero ===== */
+
+/* 상단바를 스크롤에도 고정 */
+.topbar--sticky{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(243,247,255,.80);    /* var(--bg) 기반 반투명 */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* topbar 안쪽 정렬을 wrap으로 예쁘게 */
+.topbarInner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 10px 0; /* wrap의 좌우 padding은 wrap이 담당 */
+}
+
+/* index에서만 wrap 상단 여백 불필요하니 제거(선택) */
+body.home .wrap{ padding-top: 0; }
+
+/* 풀스크린 사진 영역 */
+.homeHero{
+  position: relative;
+  height: calc(100vh - 64px); /* 상단바 높이만큼 빼기 (필요하면 64 조정) */
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* 사진 꽉 채우기 */
+.homeHeroImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* (선택) 사진 위 오버레이 텍스트 */
+.homeHeroOverlay{
+  position:absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+  color: var(--text);
+  background: rgba(255,255,255,.70);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+}
+.homeHeroTitle{ font-weight: 900; font-size: 18px; }
+.homeHeroSub{ margin-top:6px; color: var(--muted); font-size: 13px; }
