@@ -49,7 +49,7 @@ a{color:inherit;text-decoration:none}
 }
 .hero img{
   width:100%;
-  height:360px;            /* 사진 더 키우려면 420 같은 값으로 */
+  height:420px;            /* 사진 더 키우려면 420 같은 값으로 */
   object-fit:cover;
   display:block;
   filter:saturate(1.05) contrast(1.02);
@@ -183,61 +183,85 @@ a{color:inherit;text-decoration:none}
   background:#ffffff;
 }
 
-/* ===== Home (index) : sticky topbar + fullscreen hero ===== */
 
-/* 상단바를 스크롤에도 고정 */
+/* ===== Index(home) layout fixes: sticky topbar + centered mobile-like hero ===== */
+
+/* sticky topbar */
 .topbar--sticky{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(243,247,255,.80);    /* var(--bg) 기반 반투명 */
+  margin: 0;
+  padding: 0;
+  background: rgba(243,247,255,.90);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
-/* topbar 안쪽 정렬을 wrap으로 예쁘게 */
 .topbarInner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding: 10px 0; /* wrap의 좌우 padding은 wrap이 담당 */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
 }
 
-/* index에서만 wrap 상단 여백 불필요하니 제거(선택) */
-body.home .wrap{ padding-top: 0; }
+.leftSlot{ justify-self: start; }
+.rightSlot{ justify-self: end; min-width: 56px; }
 
-/* 풀스크린 사진 영역 */
-.homeHero{
-  position: relative;
-  height: calc(100vh - 64px); /* 상단바 높이만큼 빼기 (필요하면 64 조정) */
-  min-height: 520px;
-  overflow: hidden;
-}
-
-/* 사진 꽉 채우기 */
-.homeHeroImg{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* (선택) 사진 위 오버레이 텍스트 */
-.homeHeroOverlay{
-  position:absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
-  max-width: 980px;
-  margin: 0 auto;
+.centerTitle{
+  justify-self: center;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: .2px;
   color: var(--text);
-  background: rgba(255,255,255,.70);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 72vw;
 }
-.homeHeroTitle{ font-weight: 900; font-size: 18px; }
-.homeHeroSub{ margin-top:6px; color: var(--muted); font-size: 13px; }
+
+.homeHeroCard{ width: min(820px, 100%); margin: 14px auto 22px; }
+
+.homeHeroImg{ height: clamp(340px, 60vh, 620px); object-fit: cover; display:block; }
+
+@media (max-width: 480px){
+  .centerTitle{ font-size: 16px; max-width: 62vw; }
+  .homeHeroImg{ height: clamp(260px, 46vh, 380px); }
+}
+
+
+/* ===== index topbar: menu left fixed + title centered ===== */
+.topbar--withTitle{
+  position: relative; /* 중앙 제목 absolute 기준 */
+}
+
+.topbarTitle{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: .2px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+  pointer-events: none; /* 제목 눌러도 메뉴 클릭 방해 X */
+}
+
+
+
+
+/* 상단 고정(이미 있으면 생략 가능) */
+.topbar--sticky{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(243,247,255,.90);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 14px; /* 기존 .topbar margin 덮어쓰기 */
+  padding: 10px 0;
+}

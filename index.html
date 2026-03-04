@@ -4,43 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>엄친 가족들 푸꾸옥 여행 노트</title>
-
   <link rel="stylesheet" href="./styles.css" />
   <link rel="manifest" href="./manifest.json" />
   <meta name="theme-color" content="#f3f7ff" />
 </head>
 
 <body class="home">
-  <!-- ✅ 상단 고정 메뉴바 -->
-  <div class="topbar topbar--sticky">
-    <div class="wrap topbarInner">
-      <div class="menuWrap">
-        <button class="menuBtn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">
-          ☰ 목록
-        </button>
+  <div class="wrap">
 
-        <div class="menuPanel" id="menuPanel" role="menu" aria-label="페이지 메뉴">
-          <a class="menuItem" href="./tips.html" role="menuitem">일정</a>
-          <a class="menuItem" href="./spots.html" role="menuitem">관광</a>
-          <a class="menuItem" href="./food.html" role="menuitem">먹거리</a>
+    <!-- ✅ 다른 페이지와 동일한 구조: wrap 안 topbar -->
+    <div class="topbar topbar--sticky topbar--withTitle">
+      <div class="menuWrap">
+        <button class="menuBtn" id="menuBtn" type="button">☰ 목록</button>
+        <div class="menuPanel" id="menuPanel">
+          <a class="menuItem" href="./tips.html">일정</a>
+          <a class="menuItem" href="./spots.html">관광</a>
+          <a class="menuItem" href="./food.html">먹거리</a>
         </div>
       </div>
 
-      <div class="badge">엄친 가족들</div>
+      <!-- ✅ 가운데 제목(진짜 가운데 고정) -->
+      <div class="topbarTitle">엄친 가족들 푸꾸옥 여행</div>
+
+      <!-- 오른쪽 공간(균형용/나중에 버튼 넣어도 됨) -->
+      <div class="badge">엄궁 가족들</div>
     </div>
+
+    <!-- ✅ 메인 사진: 모바일 폭 느낌으로 가운데 -->
+    <div class="homeHeroCard">
+      <img class="homeHeroImg" src="./assets/cover.jpg" alt="푸꾸옥 메인 사진" />
+    </div>
+
   </div>
-
-  <!-- ✅ 풀스크린 메인 사진 -->
-  <main class="homeHero">
-    <img class="homeHeroImg" src="./assets/cover.jpg" alt="푸꾸옥 메인 사진" />
-
-    <!-- (선택) 사진 위에 제목을 살짝 얹고 싶으면 아래 주석 해제
-    <div class="homeHeroOverlay">
-      <div class="homeHeroTitle">푸꾸옥 여행 노트</div>
-      <div class="homeHeroSub">오프라인으로도 열리게 만들어둠</div>
-    </div>
-    -->
-  </main>
 
   <script>
     (function(){
@@ -48,27 +43,12 @@
       const panel = document.getElementById("menuPanel");
       if(!btn || !panel) return;
 
-      function closeMenu(){
-        panel.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-      }
-      function toggleMenu(){
-        const isOpen = panel.classList.toggle("open");
-        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      }
-
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu();
-      });
+      btn.addEventListener("click", () => panel.classList.toggle("open"));
 
       document.addEventListener("click", (e) => {
+        if(!panel.classList.contains("open")) return;
         if(panel.contains(e.target) || btn.contains(e.target)) return;
-        closeMenu();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if(e.key === "Escape") closeMenu();
+        panel.classList.remove("open");
       });
     })();
 
