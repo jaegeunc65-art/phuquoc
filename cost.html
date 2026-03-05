@@ -129,9 +129,10 @@
             <tr>
               <th>선택</th>
               <th>항목</th>
+              <th class="num">소계(원)</th>
               <th class="num">단가(원)</th>
               <th class="num">수량</th>
-              <th class="num">소계(원)</th>
+
             </tr>
           </thead>
           <tbody>
@@ -143,7 +144,7 @@
             <!-- ✅ 숙소: 단가=1인당 숙소비 / 수량=총인원 -->
             <tr data-mode="villaPerPerson">
               <td><input type="checkbox" class="pick" checked></td>
-              <td>숙소(빈펄 원더월드 4베드룸, 1인당)</td>
+              <td>숙소<br>(빈펄 원더월드 4베드룸, 1인당)</td>
               <td class="num">
                 <input type="number" class="price" id="villaRowPrice" value="0" min="0" readonly>
               </td>
@@ -281,7 +282,7 @@
 
            <tr data-mode="people">
               <td><input type="checkbox" class="pick"></td>
-              <td>심포니 오브 더 씨 + 선 바바리아 디너쇼</td>
+              <td>심포니 오브 더 씨<br>선 바바리아 디너쇼</td>
               <td class="num"><input type="number" class="price" value="52700" min="0"></td>
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
@@ -352,7 +353,7 @@
 
             <tr data-mode="manual">
               <td><input type="checkbox" class="pick"></td>
-              <td>기타 부대 비용(각 집 현금 및 여유 돈)</td>
+              <td>기타 부대 비용<br>(각 집 현금 및 여유 돈)</td>
               <td class="num"><input type="number" class="price" value="500000" min="0"></td>
               <td class="num"><input type="number" class="qty" value="1" min="0"></td>
               <td class="num subtotal">0</td>
