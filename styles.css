@@ -471,14 +471,7 @@ img {
   margin-top: 10px;
 }
 
-/* ✅ 비용표: '항목' 컬럼은 줄바꿈 허용 
-.costTable td:nth-child(2),
-.costTable th:nth-child(2){
-  white-space: normal;       /* 줄바꿈 허용 */
-  word-break: keep-all;      /* 한국어 단어 중간 잘림 방지 */
-  max-width: 250px;          /* 폭 제한 → 자동 줄바꿈 유도(원하면 조절) */
-/}
-*/
+
 
 /* ✅ 숫자/소계는 줄바꿈 방지(보기 깔끔) */
 .costTable td.num,
@@ -489,38 +482,25 @@ img {
 
 
 /* ✅ 비용표: 칸 폭을 강제로 잡아서 '항목'이 줄바꿈 되게 */
-.costTable{
-  table-layout: fixed;   /* ★ 핵심 */
-}
+.costTable{ table-layout: fixed; }
 
-/* 선택(체크박스) 칸 */
+/* 선택(체크박스) */
 .costTable th:nth-child(1),
 .costTable td:nth-child(1){
-  width: 56px;
+  width: 44px;          /* 30은 패딩 때문에 거의 불가능 */
+  padding: 8px 6px;     /* ✅ 첫 칸 좁게 */
 }
 
-/* ✅ 항목 칸: 250px 고정 */
+/* 항목 */
 .costTable th:nth-child(2),
 .costTable td:nth-child(2){
-  width: 250px !important;   /* ✅ 250 고정 */
-  white-space: normal !important;
+  width: 250px;
+  white-space: normal;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
 
-/* 소계/단가/수량 칸은 고정 폭 */
-.costTable th:nth-child(3),
-.costTable td:nth-child(3){
-  width: 120px;
-  white-space: nowrap;
-}
-.costTable th:nth-child(4),
-.costTable td:nth-child(4){
-  width: 110px;
-  white-space: nowrap;
-}
-.costTable th:nth-child(5),
-.costTable td:nth-child(5){
-  width: 80px;
-  white-space: nowrap;
-}
+/* 소계/단가/수량 */
+.costTable th:nth-child(3), .costTable td:nth-child(3){ width: 120px; white-space: nowrap; }
+.costTable th:nth-child(4), .costTable td:nth-child(4){ width: 110px; white-space: nowrap; }
+.costTable th:nth-child(5), .costTable td:nth-child(5){ width: 80px;  white-space: nowrap; }
