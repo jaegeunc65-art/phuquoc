@@ -390,12 +390,16 @@ img {
   border:1px solid var(--line);
   background: var(--card);
   border-radius:18px;
-  overflow:hidden;
+  overflow-x: auto;       /* ✅ 가로 스크롤 허용 */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* ✅ iOS 부드러운 스크롤 */
   box-shadow: 0 14px 34px rgba(2,6,23,.08);
 }
 
+/* 테이블이 너무 줄어들지 않게 최소 폭 확보 */
 .costTable{
-  width:100%;
+  width: 100%;
+  min-width: 720px;  /* ✅ 모바일에서 가로 스크롤로 보이게 */
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -417,7 +421,7 @@ img {
 }
 
 .costTable input[type="number"]{
-  width: 110px;
+  width: 96px;
   max-width: 30vw;
   border:1px solid var(--line);
   border-radius:12px;
