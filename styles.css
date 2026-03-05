@@ -505,3 +505,33 @@ img {
 .costTable th:nth-child(3), .costTable td:nth-child(3){ width: 120px; white-space: nowrap; }
 .costTable th:nth-child(4), .costTable td:nth-child(4){ width: 110px; white-space: nowrap; }
 .costTable th:nth-child(5), .costTable td:nth-child(5){ width: 80px;  white-space: nowrap; }
+
+
+/* ✅ cost.html 테이블에서 input이 칸을 밀지 못하게 강제 */
+#costTable{
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* ✅ number input이 vw로 커지지 않게 */
+#costTable input[type="number"]{
+  width: 90px !important;     /* 필요하면 80~96 사이로 */
+  max-width: none !important; /* ★ 30vw 무력화 */
+  box-sizing: border-box;
+}
+
+/* 선택(체크박스) 칸도 실제로 줄이고 싶으면 padding까지 줄여야 함 */
+#costTable th:nth-child(1),
+#costTable td:nth-child(1){
+  width: 44px !important;
+  padding: 8px 6px !important;
+}
+
+/* 항목 칸 250 고정 */
+#costTable th:nth-child(2),
+#costTable td:nth-child(2){
+  width: 250px !important;
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

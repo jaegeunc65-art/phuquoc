@@ -125,6 +125,15 @@
 
       <div class="tableWrap">
         <table class="costTable" id="costTable">
+
+  <colgroup>
+    <col style="width:44px;">    <!-- 선택(체크박스) -->
+    <col style="width:250px;">   <!-- 항목 -->
+    <col style="width:120px;">   <!-- 단가 -->
+    <col style="width:90px;">    <!-- 수량 -->
+    <col style="width:120px;">   <!-- 소계 -->
+  </colgroup>
+
           <thead>
             <tr>
               <th>선택</th>
@@ -143,7 +152,7 @@
             <!-- ✅ 숙소: 단가=1인당 숙소비 / 수량=총인원 -->
             <tr data-mode="villaPerPerson">
               <td><input type="checkbox" class="pick" checked></td>
-              <td>숙소<br>(빈펄 4베드룸, 1인당)</td>
+              <td>숙소<br>(원더월드 4베드룸, 1인당)</td>
               <td class="num">
                 <input type="number" class="price" id="villaRowPrice" value="0" min="0" readonly>
               </td>
