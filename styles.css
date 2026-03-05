@@ -316,3 +316,153 @@ img {
   color: var(--muted);
   margin: 0 0 10px;
 }
+/* ===== 비용 계산 페이지 ===== */
+.calcGrid{
+  border:1px solid var(--line);
+  background: var(--card);
+  border-radius:18px;
+  padding: 14px;
+  box-shadow: 0 14px 34px rgba(2,6,23,.08);
+}
+
+.calcRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 10px 0;
+}
+
+.calcLabel{
+  font-weight: 800;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.calcInput{
+  width: 140px;
+  max-width: 45vw;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 12px;
+  background: rgba(255,255,255,.92);
+  font-weight: 800;
+}
+
+.calcHr{
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 10px 0;
+}
+
+.resultBox{
+  border:1px solid var(--line);
+  background: var(--card);
+  border-radius:18px;
+  padding: 14px;
+  box-shadow: 0 14px 34px rgba(2,6,23,.08);
+}
+
+.resultRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 10px 0;
+}
+
+.resultLabel{
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.resultValue{
+  font-weight: 900;
+}
+
+.resultRow.total{
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 14px;
+}
+
+
+.tableWrap{
+  border:1px solid var(--line);
+  background: var(--card);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow: 0 14px 34px rgba(2,6,23,.08);
+}
+
+.costTable{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.costTable th, .costTable td{
+  border-bottom: 1px solid var(--line);
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.costTable th{
+  background: rgba(243,247,255,.8);
+  text-align: left;
+  font-weight: 900;
+}
+
+.costTable td.num, .costTable th.num{
+  text-align: right;
+}
+
+.costTable input[type="number"]{
+  width: 110px;
+  max-width: 30vw;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:8px 10px;
+  font-weight: 800;
+  background: rgba(255,255,255,.92);
+}
+
+.costTable input[type="checkbox"]{
+  transform: scale(1.1);
+}
+
+
+/* ===== cost: 가족 프리셋 버튼 ===== */
+.presetBar{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+
+.presetBtn{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.92);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(2,6,23,.06);
+}
+
+.presetBtn:hover{
+  border-color: rgba(59,130,246,.35);
+  background:#fff;
+}
+
+.presetBtn--ghost{
+  opacity: .85;
+}
+.calcStrong{
+  font-weight: 900;
+}
+.hintText{
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
