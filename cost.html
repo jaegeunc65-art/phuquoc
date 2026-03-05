@@ -64,7 +64,9 @@
         </div>
       </div>
     </div>
-<br><br><br>
+
+    <br><br><br>
+
     <!-- =========================
          숙소 분담 계산(별도 박스)
     ========================= -->
@@ -79,10 +81,11 @@
           </div>
         </div>
 
+        <!-- ✅ 총 인원(기준): 이제 자동으로 "4집 인원 합계"로 들어감 -->
         <div class="resultRow">
           <div class="resultLabel">총 인원(기준)</div>
           <div class="resultValue">
-            <input class="calcInput" id="villaPeopleBase" type="number" min="1" value="16" />
+            <input class="calcInput" id="villaPeopleBase" type="number" min="1" value="16" readonly />
           </div>
         </div>
 
@@ -93,30 +96,48 @@
 
         <hr class="calcHr">
 
+        <!-- ✅ 각 집 "인원"을 입력으로 변경 -->
         <div class="resultRow">
-          <div class="resultLabel">건우네(3명)</div>
-          <div class="resultValue" id="outVillaGunwoo">-</div>
+          <div class="resultLabel">건우네</div>
+          <div class="resultValue">
+            <input class="calcInput" id="villaGunwooPeople" type="number" min="0" value="3" />
+            <span style="margin-left:10px;" id="outVillaGunwoo">-</span>
+          </div>
         </div>
+
         <div class="resultRow">
-          <div class="resultLabel">서현이네(5명)</div>
-          <div class="resultValue" id="outVillaSeohyun">-</div>
+          <div class="resultLabel">서현이네</div>
+          <div class="resultValue">
+            <input class="calcInput" id="villaSeohyunPeople" type="number" min="0" value="5" />
+            <span style="margin-left:10px;" id="outVillaSeohyun">-</span>
+          </div>
         </div>
+
         <div class="resultRow">
-          <div class="resultLabel">주완이네(3명)</div>
-          <div class="resultValue" id="outVillaJuwan">-</div>
+          <div class="resultLabel">주완이네</div>
+          <div class="resultValue">
+            <input class="calcInput" id="villaJuwanPeople" type="number" min="0" value="3" />
+            <span style="margin-left:10px;" id="outVillaJuwan">-</span>
+          </div>
         </div>
+
         <div class="resultRow">
-          <div class="resultLabel">승현이네(5명)</div>
-          <div class="resultValue" id="outVillaSeunghyun">-</div>
+          <div class="resultLabel">승현이네</div>
+          <div class="resultValue">
+            <input class="calcInput" id="villaSeunghyunPeople" type="number" min="0" value="5" />
+            <span style="margin-left:10px;" id="outVillaSeunghyun">-</span>
+          </div>
         </div>
 
         <div class="hintText">
           ※ 계산 방식: 숙소총액 ÷ (총 인원 기준) × (각 집 인원수)<br>
-          총 인원 기준은 기본 16이며, 필요하면 직접 수정해서 사용하세요.
+          총 인원(기준)은 위 4집 인원 합계로 자동 계산됩니다.
         </div>
       </div>
     </div>
-<br><br><br>
+
+    <br><br><br>
+
     <!-- =========================
          항목 선택 표
     ========================= -->
@@ -125,14 +146,13 @@
 
       <div class="tableWrap">
         <table class="costTable" id="costTable">
-
-  <colgroup>
-    <col style="width:44px;">    <!-- 선택(체크박스) -->
-    <col style="width:auto;">     <!-- 항목 -->
-    <col style="width:120px;">   <!-- 단가 -->
-    <col style="width:90px;">    <!-- 수량 -->
-    <col style="width:120px;">   <!-- 소계 -->
-  </colgroup>
+          <colgroup>
+            <col style="width:44px;">
+            <col style="width:auto;">
+            <col style="width:120px;">
+            <col style="width:90px;">
+            <col style="width:120px;">
+          </colgroup>
 
           <thead>
             <tr>
@@ -144,10 +164,6 @@
             </tr>
           </thead>
           <tbody>
-
-
-
-
 
             <!-- ✅ 숙소: 단가=1인당 숙소비 / 수량=총인원 -->
             <tr data-mode="villaPerPerson">
@@ -162,9 +178,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
-
-
             <tr data-mode="people">
               <td><input type="checkbox" class="pick" checked></td>
               <td>항공권</td>
@@ -172,7 +185,6 @@
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -190,9 +202,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
-
-
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
               <td>호핑투어(성인)</td>
@@ -201,7 +210,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
             <tr data-mode="child">
               <td><input type="checkbox" class="pick" checked></td>
               <td>호핑투어(어린이)</td>
@@ -209,8 +217,6 @@
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -228,8 +234,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
-
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick"></td>
               <td>빈원더스(성인)</td>
@@ -245,7 +249,6 @@
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -263,7 +266,7 @@
               <td class="num subtotal">0</td>
             </tr>
 
-           <tr data-mode="people">
+            <tr data-mode="people">
               <td><input type="checkbox" class="pick"></td>
               <td>선셋타운 버기투어</td>
               <td class="num"><input type="number" class="price" value="20000" min="0"></td>
@@ -271,7 +274,7 @@
               <td class="num subtotal">0</td>
             </tr>
 
-           <tr data-mode="people">
+            <tr data-mode="people">
               <td><input type="checkbox" class="pick"></td>
               <td>키스오브더씨 쑈</td>
               <td class="num"><input type="number" class="price" value="35500" min="0"></td>
@@ -279,8 +282,7 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
-           <tr data-mode="people">
+            <tr data-mode="people">
               <td><input type="checkbox" class="pick"></td>
               <td>심포니오브더씨 쑈</td>
               <td class="num"><input type="number" class="price" value="35000" min="0"></td>
@@ -288,18 +290,13 @@
               <td class="num subtotal">0</td>
             </tr>
 
-           <tr data-mode="people">
+            <tr data-mode="people">
               <td><input type="checkbox" class="pick"></td>
               <td>심포니 오브 더 씨<br>선 바바리아 디너쇼</td>
               <td class="num"><input type="number" class="price" value="52700" min="0"></td>
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
-
-
-
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -309,7 +306,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
             <tr data-mode="child">
               <td><input type="checkbox" class="pick" checked></td>
               <td>빈펄 Fire BBQ(아동)</td>
@@ -317,7 +313,6 @@
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -327,7 +322,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
             <tr data-mode="child">
               <td><input type="checkbox" class="pick" checked></td>
               <td>빈펄 빌라 BBQ(아동)</td>
@@ -335,7 +329,6 @@
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
-
 
             <tr data-mode="adult">
               <td><input type="checkbox" class="pick" checked></td>
@@ -345,7 +338,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
             <tr data-mode="child">
               <td><input type="checkbox" class="pick" checked></td>
               <td>식사 6회(아동)</td>
@@ -354,11 +346,6 @@
               <td class="num subtotal">0</td>
             </tr>
 
-
-
-
-
-
             <tr data-mode="manual">
               <td><input type="checkbox" class="pick"></td>
               <td>기타 부대 비용<br>(각 집 현금 및 여유 돈)</td>
@@ -366,7 +353,6 @@
               <td class="num"><input type="number" class="qty" value="1" min="0"></td>
               <td class="num subtotal">0</td>
             </tr>
-
 
           </tbody>
         </table>
@@ -387,7 +373,9 @@
         </div>
       </div>
     </div>
-<br><br><br>
+
+    <br><br><br>
+
     <a class="toTop" href="#top" aria-label="맨 위로">↑ TOP</a>
   </div>
 
@@ -413,6 +401,12 @@
     const villaTotalEl = document.getElementById("villaTotal");
     const villaPeopleBaseEl = document.getElementById("villaPeopleBase");
 
+    // ✅ 각 집 인원 입력
+    const villaGunwooPeopleEl = document.getElementById("villaGunwooPeople");
+    const villaSeohyunPeopleEl = document.getElementById("villaSeohyunPeople");
+    const villaJuwanPeopleEl = document.getElementById("villaJuwanPeople");
+    const villaSeunghyunPeopleEl = document.getElementById("villaSeunghyunPeople");
+
     // 표의 숙소 행(단가/수량)
     const villaRowPriceEl = document.getElementById("villaRowPrice");
     const villaRowQtyEl = document.getElementById("villaRowQty");
@@ -425,24 +419,36 @@
       return { adults: a, kids: c, people: a + c };
     }
 
+    function getVillaFamilyPeople(){
+      const g = Math.max(0, Number(villaGunwooPeopleEl?.value) || 0);
+      const s = Math.max(0, Number(villaSeohyunPeopleEl?.value) || 0);
+      const j = Math.max(0, Number(villaJuwanPeopleEl?.value) || 0);
+      const sh = Math.max(0, Number(villaSeunghyunPeopleEl?.value) || 0);
+      return { g, s, j, sh, sum: g + s + j + sh };
+    }
+
     // ✅ 숙소 1인당 비용 계산 + 화면/표 반영
     function calcVillaPerPerson(){
-      const basePeople = Math.max(1, Number(villaPeopleBaseEl.value) || 16);
       const villaTotal = Number(villaTotalEl.value) || 0;
 
+      // 1) 4집 인원 합계 -> 총 인원(기준)
+      const fam = getVillaFamilyPeople();
+      const basePeople = Math.max(1, fam.sum || 1);
+      villaPeopleBaseEl.value = basePeople;
+
+      // 2) 1인당 계산
       const per = villaTotal / basePeople;
 
-      // 숙소 분담 박스 출력
+      // 3) 출력
       document.getElementById("outVillaPerPerson").textContent = fmt(per) + " 원";
-      document.getElementById("outVillaGunwoo").textContent = fmt(per * 3) + " 원";
-      document.getElementById("outVillaSeohyun").textContent = fmt(per * 5) + " 원";
-      document.getElementById("outVillaJuwan").textContent = fmt(per * 3) + " 원";
-      document.getElementById("outVillaSeunghyun").textContent = fmt(per * 5) + " 원";
+      document.getElementById("outVillaGunwoo").textContent = fmt(per * fam.g) + " 원";
+      document.getElementById("outVillaSeohyun").textContent = fmt(per * fam.s) + " 원";
+      document.getElementById("outVillaJuwan").textContent = fmt(per * fam.j) + " 원";
+      document.getElementById("outVillaSeunghyun").textContent = fmt(per * fam.sh) + " 원";
 
-      // ✅ 표의 숙소 단가(원)에 1인당 숙소비 자동 입력
-      if(villaRowPriceEl){
-        villaRowPriceEl.value = Math.round(per);
-      }
+      // 4) 표 숙소 단가/수량 반영
+      if(villaRowPriceEl) villaRowPriceEl.value = Math.round(per);
+      if(villaRowQtyEl) villaRowQtyEl.value = basePeople;
 
       return per;
     }
@@ -459,11 +465,6 @@
       // ✅ 숙소 단가(1인당) 먼저 계산하고 표에 반영
       calcVillaPerPerson();
 
-      // ✅ 표의 숙소 수량=총인원 자동 입력
-      if(villaRowQtyEl){
-        villaRowQtyEl.value = people;
-      }
-
       let total = 0;
 
       table.querySelectorAll("tbody tr").forEach(tr => {
@@ -479,8 +480,7 @@
         else if(mode === "child") qty.value = kids;
         else if(mode === "people") qty.value = people;
         else if(mode === "villaPerPerson") {
-          // 숙소 행은 위에서 값 채워둠(단가=1인당, 수량=총인원)
-          // qty는 disabled 상태 유지
+          // 숙소 행은 위에서 값 채움
         }
 
         // manual만 수량 입력 가능, 나머지는 비활성
@@ -526,7 +526,10 @@
         e.target === adultEl ||
         e.target === childEl ||
         e.target === villaTotalEl ||
-        e.target === villaPeopleBaseEl
+        e.target === villaGunwooPeopleEl ||
+        e.target === villaSeohyunPeopleEl ||
+        e.target === villaJuwanPeopleEl ||
+        e.target === villaSeunghyunPeopleEl
       ){
         calc();
       }
