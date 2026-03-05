@@ -587,3 +587,26 @@ img {
   overflow: hidden;
   text-overflow: ellipsis;    /* 길면 ... */
 }
+
+
+/* ===== 숙소 분담: 집별 인원 입력 정렬 ===== */
+.villaSplit{
+  display: grid;
+  grid-template-columns: 84px 1fr; /* 왼쪽: 인원 입력칸 고정, 오른쪽: 금액 */
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.villaSplit .calcInput{
+  width: 84px;          /* 입력칸 폭 고정 */
+  max-width: 84px;
+  text-align: center;   /* 숫자 가운데 정렬 */
+  padding: 10px 10px;   /* 기존과 비슷하게 */
+}
+
+.villaSplit span{
+  justify-self: end;    /* 금액을 오른쪽 끝으로 */
+  font-weight: 900;
+  white-space: nowrap;
+}
