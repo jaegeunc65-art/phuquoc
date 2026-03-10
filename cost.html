@@ -38,19 +38,19 @@
       <div class="presetBar">
         <button class="presetBtn" type="button" data-a="2" data-c="1">건우네 (성인2, 아동1)</button>
         <button class="presetBtn" type="button" data-a="2" data-c="3">서현이네 (성인2, 아동3)</button>
-        <button class="presetBtn" type="button" data-a="2" data-c="1">주완이네 (성인2, 아동1)</button>
+        <button class="presetBtn" type="button" data-a="2" data-c="1">주완이네 (성인1, 아동1)</button>
         <button class="presetBtn" type="button" data-a="2" data-c="3">승현이네 (성인2, 아동3)</button>
-        <button class="presetBtn presetBtn--ghost" type="button" id="btnAll">전체(성인8, 아동8)</button>
+        <button class="presetBtn presetBtn--ghost" type="button" id="btnAll">전체(성인6, 아동7)</button>
       </div>
 
       <div class="calcGrid">
         <div class="calcRow">
           <label class="calcLabel">성인</label>
-          <input class="calcInput" id="adultCount" type="number" min="0" value="8" />
+          <input class="calcInput" id="adultCount" type="number" min="0" value="6" />
         </div>
         <div class="calcRow">
           <label class="calcLabel">어린이</label>
-          <input class="calcInput" id="childCount" type="number" min="0" value="8" />
+          <input class="calcInput" id="childCount" type="number" min="0" value="7" />
         </div>
 
         <hr class="calcHr">
@@ -77,15 +77,15 @@
         <div class="resultRow">
           <div class="resultLabel">숙소 총액</div>
           <div class="resultValue">
-            <input class="calcInput" id="villaTotal" type="number" min="0" value="3500000" />
+            <input class="calcInput" id="villaTotal" type="number" min="0" value="3400000" />
           </div>
         </div>
 
-        <!-- ✅ 총 인원(기준): 이제 자동으로 "4집 인원 합계"로 들어감 -->
+        <!-- ✅ 총 인원(기준): 이제 자동으로 "3집 인원 합계"로 들어감 -->
         <div class="resultRow">
           <div class="resultLabel">총 인원(기준)</div>
           <div class="resultValue">
-            <input class="calcInput" id="villaPeopleBase" type="number" min="1" value="16" readonly />
+            <input class="calcInput" id="villaPeopleBase" type="number" min="1" value="13" readonly />
           </div>
         </div>
 
@@ -116,7 +116,7 @@
         <div class="resultRow">
           <div class="resultLabel">주완이네</div>
           <div class="resultValue villaSplit">
-            <input class="calcInput" id="villaJuwanPeople" type="number" min="0" value="3" />
+            <input class="calcInput" id="villaJuwanPeople" type="number" min="0" value="0" />
             <span style="margin-left:10px;" id="outVillaJuwan">-</span>
           </div>
         </div>
@@ -131,7 +131,7 @@
 
         <div class="hintText">
           ※ 계산 방식: 숙소총액 ÷ (총 인원 기준) × (각 집 인원수)<br>
-          총 인원(기준)은 위 4집 인원 합계로 자동 계산됩니다.
+          총 인원(기준)은 위 3집 인원 합계로 자동 계산됩니다.
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@
             <tr data-mode="people">
               <td><input type="checkbox" class="pick" checked></td>
               <td>항공권</td>
-              <td class="num"><input type="number" class="price" value="450000" min="0"></td>
+              <td class="num"><input type="number" class="price" value="360000" min="0"></td>
               <td class="num"><input type="number" class="qty" value="0" min="0" disabled></td>
               <td class="num subtotal">0</td>
             </tr>
